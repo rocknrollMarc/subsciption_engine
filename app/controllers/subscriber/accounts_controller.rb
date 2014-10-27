@@ -12,6 +12,7 @@ module Subscriber
       account = 
         Subscriber::Account.create(account_params)
       env["warden"].set_user(account.owner, :scope => :user)
+      p account.owner
       env["warden"].set_user(account, :scope => :account)
       flash[:success] = "Your account has been successfully created."
       redirect_to subscriber.root_url
@@ -19,9 +20,9 @@ module Subscriber
 
   private
 
-  def account_params
-    params.require(:account).permit(:name)
-  end
-  end
+      def account_params
+        params.require(:account).permit(:name, { :owner_attributes => [ :email, :password, :password_confirmation ]})
+      end
 
+    end
 end
