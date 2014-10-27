@@ -11,14 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141027115204) do
+ActiveRecord::Schema.define(version: 20141027132547) do
 
   create_table "subscriber_accounts", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "owner_id"
+    t.string   "subdomain"
   end
+
+  add_index "subscriber_accounts", ["subdomain"], name: "index_subscriber_accounts_on_subdomain"
 
   create_table "subscriber_users", force: true do |t|
     t.string   "email"
