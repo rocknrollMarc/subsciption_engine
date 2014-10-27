@@ -14,4 +14,5 @@ gemspec
 # gem 'debugger'
 group :development do
   gem 'guard-rspec'
+  gem 'factory_girl_rails'
 end
