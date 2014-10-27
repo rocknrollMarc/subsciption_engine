@@ -11,6 +11,8 @@ module Subscriber
     def create
       account = 
         Subscriber::Account.create(account_params)
+      env["warden"].set_user(account.owner, :scope => :user)
+      env["warden"].set_user(account, :scope => :account)
       flash[:success] = "Your account has been successfully created."
       redirect_to subscriber.root_url
     end
