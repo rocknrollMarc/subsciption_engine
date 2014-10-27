@@ -13,4 +13,10 @@ module Subscriber
       redirect_to subscriber.root.url
     end
   end
+
+  private
+
+  def account_params
+    params.require(:account).permit(:name)
+  end
 end
