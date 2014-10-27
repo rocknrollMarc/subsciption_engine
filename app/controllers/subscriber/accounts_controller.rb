@@ -8,15 +8,17 @@ module Subscriber
     end
 
     def create
-      account = Subscriber::Account.create(account_params)
+      account = 
+        Subscriber::Account.create(account_params)
       flash[:success] = "Your account has been successfully created."
-      redirect_to subscriber.root.url
+      redirect_to subscriber.root_url
     end
-  end
 
   private
 
   def account_params
     params.require(:account).permit(:name)
   end
+  end
+
 end

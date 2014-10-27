@@ -11,6 +11,6 @@ feature "Accounts" do
 
     success_message = "Your account has been successfully created."
 
-    expect(page).to hav_content(success_message)
+    expect(page).to have_content(success_message)
   end
 end
