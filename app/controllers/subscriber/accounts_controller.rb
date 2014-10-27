@@ -6,5 +6,11 @@ module Subscriber
     def new
       @account = Subscriber::Account.new
     end
+
+    def create
+      account = Subscriber::Account.create(account_params)
+      flash[:success] = "Your account has been successfully created."
+      redirect_to subscriber.root.url
+    end
   end
 end
