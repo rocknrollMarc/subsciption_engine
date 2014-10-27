@@ -12,7 +12,5 @@ gemspec
 
 # To use debugger
 # gem 'debugger'
-group :development do
-  gem 'guard-rspec'
-  gem 'factory_girl_rails'
+end
 end
