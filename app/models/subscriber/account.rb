@@ -4,5 +4,7 @@ module Subscriber
     accepts_nested_attributes_for :owner
 
     validates :subdomain, :presence => true, :uniqueness => true
+    validates_exclution_of :subdomain, :in => EXCLUDED_SUBDOMAINS,
+      :message => "is not allowed. Please choose another subdomain."
   end
 end
