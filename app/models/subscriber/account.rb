@@ -9,8 +9,11 @@ module Subscriber
 
     validates :subdomain, :presence => true, :uniqueness => true
 
+    validates_format_of :subdomain, :with => /\A[\w\-]+\Z/i,
+      :message => "is not allowed. Please choose another subdomain\."
+
     EXCLUDED_SUBDOMAINS = %w(admin)
     validates_exclusion_of :subdomain, :in => EXCLUDED_SUBDOMAINS,
-      :message => "is not allowed. Please choose another subdomain."
+        :message => "is not allowed. Please choose another subdomain."
+    end
   end
-end
