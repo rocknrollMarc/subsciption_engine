@@ -21,7 +21,7 @@ module Subscriber
   private
 
       def account_params
-        params.require(:account).permit(:name, { :owner_attributes => [ :email, :password, :password_confirmation ]})
+        params.require(:account).permit(:name, :subdomain, { :owner_attributes => [ :email, :password, :password_confirmation ]})
       end
 
     end
