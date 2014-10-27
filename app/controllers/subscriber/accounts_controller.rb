@@ -9,13 +9,19 @@ module Subscriber
     end
 
     def create
-      account = 
-        Subscriber::Account.create(account_params)
+      @account = Subscriber::Account.new(account_params)
+
+      if @account.save
+
       env["warden"].set_user(account.owner, :scope => :user)
       p account.owner
       env["warden"].set_user(account, :scope => :account)
       flash[:success] = "Your account has been successfully created."
       redirect_to subscriber.root_url(:subdomain => account.subdomain)
+      else
+        flash[:error] = "Sorry, your account could not be created."
+        render :new
+      end
     end
 
   private
