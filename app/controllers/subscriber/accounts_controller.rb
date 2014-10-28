@@ -13,8 +13,7 @@ module Subscriber
 
       if @account.valid?
 
-      env["warden"].set_user(@account.owner, :scope => :user)
-      env["warden"].set_user(@account, :scope => :account)
+        force_authentication!(@account, @account.owner)
       flash[:success] = "Your account has been successfully created."
       redirect_to subscriber.root_url(:subdomain => @account.subdomain)
       else
