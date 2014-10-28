@@ -5,6 +5,7 @@ Subscriber::Engine.routes.draw do
   constraints(Subscriber::Constraints::SubdomainRequired) do
     scope :module => "account" do
       root :to => "dashboard#index", :as => :account_root
+      get "/sign_in", :to => "sessions#new", :as => :sign_in
     end
   end
 
