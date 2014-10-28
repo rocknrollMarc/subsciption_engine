@@ -7,10 +7,4 @@ module AuthenticationHelpers
     end
   end
 
-  Rspec.configure do |config|
-    config.include AuthenticationHelpers, :type => :feature
-    config.after :type => :feature do
-      logout
-    end
-  end
 end
