@@ -12,6 +12,8 @@ Warden::Strategies.add(:password) do
     return fail! unless user = account.users.find_by(email: params["user"]["email"])
     return fail! unless user.authenticate(params["user"]["password"])
 
+    success! user
+
 
   end
 end
