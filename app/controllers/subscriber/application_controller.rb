@@ -26,7 +26,6 @@ module Subscriber
     end
 
     helper_method :user_signed_in?
-  end
 
   def authenticate_user!
     unless user_signed_in?
@@ -34,6 +33,13 @@ module Subscriber
       redirect_to "/sign_in"
     end
   end
+
+  def force_authentication!(account, user)
+    env["warden"].set_user(user, :scope => :user)
+    env["warden"].set_user(account, :scope => :account)
+  end
+  end
+
 
 
 end

@@ -8,7 +8,7 @@ module Subscriber
     end
 
     def create
-      account = Subscriber::Account.find_by!(:subdomain => request.subdomain)
+      account = Subscriber::Account.find_by_subdomain!(request.subdomain)
       user = account.users.create(user_params)
       force_authentication!(account, user)
       flash[:success] = "You have signed up successfully."

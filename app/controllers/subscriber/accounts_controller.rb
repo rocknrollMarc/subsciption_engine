@@ -29,6 +29,5 @@ module Subscriber
                                         { :owner_attributes => 
                                           [ :email, :password, :password_confirmation ]})
       end
-
     end
 end
