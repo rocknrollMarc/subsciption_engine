@@ -33,7 +33,7 @@ feature "Accounts" do
 
     click_button "Create Account"
 
-    expect(page.current_url).to eq("http://www.example.com/subscriber/accounts")
+    expect(page.current_url).to eq("http://www.example.com/accounts")
     expect(page).to have_content("Sorry, your account could not be created.")
     expect(page).to have_content("Subdomain has already been taken")
   end
@@ -49,7 +49,7 @@ feature "Accounts" do
     fill_in "Password confirmation", :with => "password"
     click_button "Create Account"
 
-    expect(page.current_url).to eq("http://www.example.com/subscriber/accounts")
+    expect(page.current_url).to eq("http://www.example.com/accounts")
     expect(page).to have_content("Sorry, your account could not be created.")
   end
 
@@ -65,7 +65,7 @@ feature "Accounts" do
 
     click_button "Create Account"
 
-    expect(page.current_url).to eq("http://www.example.com/subscriber/accounts")
+    expect(page.current_url).to eq("http://www.example.com/accounts")
     expect(page).to have_content("Sorry, your account could not be created.")
     expect(page).to have_content("Subdomain is not allowed. Please choose another \ 
                                  subdomain.")
