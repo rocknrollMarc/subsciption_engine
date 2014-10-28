@@ -1,5 +1,7 @@
 module Subscriber
   class Account < ActiveRecord::Base
+    has_many :members, :class_name => "Subscriber::Member"
+    has_many :users, :through => :members
     belongs_to :owner, :class_name => "Subscriber::User"
     accepts_nested_attributes_for :owner
 

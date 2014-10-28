@@ -1,4 +1,4 @@
-require_dependency "subscriber/application_controller"
+require_dependency "Subscriber/application_controller"
 
 module Subscriber
   class Account::DashboardController < Subscriber::ApplicationController
