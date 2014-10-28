@@ -1,7 +1,7 @@
 require_dependency "subscriber/application_controller"
-
+require 'subscriber/constraints/subdomain_required'
 module Subscriber
-  class Account::SessionsController < ApplicationController
+  class Account::SessionsController < Subscriber::ApplicationController
 
     def new
       @user = User.new
