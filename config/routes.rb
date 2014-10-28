@@ -1,3 +1,5 @@
+require 'subscriber/constraints/subdomain_required'
+
 Subscriber::Engine.routes.draw do
   
   constraints(Subscriber::Constraints::SubdomainRequired) do
