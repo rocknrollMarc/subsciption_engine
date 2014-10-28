@@ -9,8 +9,12 @@ module Subscriber
 
     def create
       if env["warden"].authenticate(:scope => :user)
-        flash[:notice] = "You are now signed in."
+        flash[:success] = "You are now signed in."
         redirect_to root_path
+      else
+        @user = User.new
+        flash[:error] = "IInvalid email or password."
+        render :action => "new"
       end
     end
 
