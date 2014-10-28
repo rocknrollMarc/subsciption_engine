@@ -1,6 +1,8 @@
 module Subscriber
   require 'warden'
   require 'dynamic_form'
+  require 'subscriber/active_record_extensions'
+
   class Engine < ::Rails::Engine
     isolate_namespace Subscriber
 
