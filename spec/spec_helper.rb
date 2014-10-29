@@ -15,6 +15,7 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+
   config.before(:all) do
     DatabaseCleaner.strategy = :truncation,
       { :pre_count => true, :reset_ids => true }
