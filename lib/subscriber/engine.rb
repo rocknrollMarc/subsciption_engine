@@ -1,5 +1,6 @@
 module Subscriber
   require 'warden'
+  require 'houser'
   require 'dynamic_form'
 
   class Engine < ::Rails::Engine
@@ -11,6 +12,11 @@ module Subscriber
       Dir.glob(extenders_path) do |file|
         Rails.configuration.cache_classes ? require(file) : load(file)
       end
+    end
+
+    initializer 'subscriber.middleware.houser' do
+      Rails.application.config.middleware.use Houser::Middleware,
+        :class_name =>  'Subscriber::Account'
     end
 
 
