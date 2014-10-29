@@ -1,11 +1,6 @@
 ::ApplicationController.class_eval do
   def current_account
-    if user_signed_in?
-      @current_account ||= begin
-        account_id = env["warden"].user(:scope => :account)
-        Subscriber::Account.find(account_id)
-       end
-    end
+    @current_account ||= Subscriber::Account.find_by!(subdomain: request.subdomain)
   end
 
   helper_method :current_account
@@ -31,6 +26,5 @@
 
   def force_authentication!(account, user)
     env["warden"].set_user(user, :scope => :user)
-    env["warden"].set_user(account, :scope => :account)
   end
 end
