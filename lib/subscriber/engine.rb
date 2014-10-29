@@ -3,6 +3,7 @@ module Subscriber
   require 'dynamic_form'
   require 'subscriber/active_record_extensions'
   require 'apartment'
+  require 'apartment/elevators/subdomain'
 
   class Engine < ::Rails::Engine
     isolate_namespace Subscriber
