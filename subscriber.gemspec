@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency "pg"
 
   s.add_development_dependency "rspec-rails"
+  s.add_development_dependency "houser", "1.0.2"
   s.add_development_dependency "capybara"
   s.add_development_dependency "database_cleaner", "1.3.0"
   s.add_development_dependency "bcrypt", "3.1.7"
