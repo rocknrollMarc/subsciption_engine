@@ -2,6 +2,7 @@ module Subscriber
   require 'warden'
   require 'dynamic_form'
   require 'subscriber/active_record_extensions'
+  require 'apartment'
 
   class Engine < ::Rails::Engine
     isolate_namespace Subscriber

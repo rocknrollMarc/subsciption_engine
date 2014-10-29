@@ -26,7 +26,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "warden", "1.2.3"
   s.add_development_dependency "dynamic_form"
   s.add_development_dependency "factory_girl"
-  s.add_development_dependency "factory_girl"
 
 
 end
