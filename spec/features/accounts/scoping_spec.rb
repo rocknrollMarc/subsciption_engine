@@ -16,7 +16,6 @@ feature "Account scoping" do
     sign_in_as(:user => account_a.owner, :account => account_a)
     visit main_app.things_url(:subdomain => account_a.subdomain)
 
-    visit "/things"
     expect(page).to have_content("Account A's Thing")
     expect(page).to_not have_content("Account B's Thing")
   end
@@ -25,7 +24,6 @@ feature "Account scoping" do
     sign_in_as(:user => account_b.owner, :account => account_b)
     visit main_app.things_url(:subdomain => account_b.subdomain)
 
-    visit "/things"
     expect(page).to have_content("Account B's Thing")
     expect(page).to_not have_content("Account A's Thing")
   end
