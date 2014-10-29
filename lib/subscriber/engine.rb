@@ -15,6 +15,10 @@ module Subscriber
       end
     end
 
+    initializer "subscriber.middleware.apartment" do
+      Rails.application.config.middleware.use Apartment::Elevators::Subdomain
+    end
+
     initializer "subscriber.middleware.warden" do
       Rails.application.config.middleware.use Warden::Manager do |manager|
 
