@@ -6,5 +6,12 @@ module AuthenticationHelpers
       login_as(object, :scope => scope)
     end
   end
+  RSpec.configure do |config|
+    config.include AuthenticationHelpers, :type => :feature
+    config.after :type =>  :feature do
+      logout
+    end
+    end
+
 
 end
