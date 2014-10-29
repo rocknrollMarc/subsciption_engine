@@ -11,7 +11,8 @@ describe Subscriber::AccountsController do
     end
     specify do
       expect(account).to receive(:create_schema)
-      post :create, :account => { :name => "First Account"}
+      post :create, :account => { :name => "First Account"},
+        :use_route => :subscriber
     end
   end
 end
