@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 feature "Account scoping" do
-  let!(:account_a) { FactoryGirl.create(:account_with_schema) }
-  let!(:account_b) { FactoryGirl.create(:account_with_schema) }
+  let!(:account_a) { FactoryGirl.create(:account) }
+  let!(:account_b) { FactoryGirl.create(:account) }
 
   before do
     Apartment::Database.switch(account_a.subdomain)

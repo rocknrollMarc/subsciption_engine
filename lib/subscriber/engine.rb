@@ -1,8 +1,6 @@
 module Subscriber
   require 'warden'
   require 'dynamic_form'
-  require 'apartment'
-  require 'apartment/elevators/subdomain'
 
   class Engine < ::Rails::Engine
     isolate_namespace Subscriber
@@ -15,9 +13,6 @@ module Subscriber
       end
     end
 
-    initializer "subscriber.middleware.apartment" do
-      Rails.application.config.middleware.use Apartment::Elevators::Subdomain
-    end
 
     initializer "subscriber.middleware.warden" do
       Rails.application.config.middleware.use Warden::Manager do |manager|

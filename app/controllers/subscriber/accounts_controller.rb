@@ -14,7 +14,6 @@ module Subscriber
       if @account.valid?
 
         force_authentication!(@account.owner)
-        @account.create_schema
 
       flash[:success] = "Your account has been successfully created."
       redirect_to subscriber.root_url(:subdomain => @account.subdomain)
