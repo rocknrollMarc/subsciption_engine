@@ -1,7 +1,6 @@
 module Subscriber
   require 'warden'
   require 'dynamic_form'
-  require 'subscriber/active_record_extensions'
   require 'apartment'
   require 'apartment/elevators/subdomain'
 
