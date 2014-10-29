@@ -36,7 +36,10 @@ module Subscriber
     end
 
     config.generators do |g|
-      g.test_framework :rspec, :view_spec => false
+      g.test_framework :rspec, :view_spec => false,
+        :controller_spec => false,
+        :model_spec => false,
+        :helper_spec => false
     end
 
   end
